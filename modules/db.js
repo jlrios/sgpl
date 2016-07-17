@@ -31,12 +31,32 @@ router.post('/authenticate', function(req, res) {
             "WHERE " +
                "b.CLIENTE_ID = '" + req.body.cliente.numero + "' AND a.CLIENTE_ID = '" + req.body.cliente.numero + "' AND a.CLAVE_CLIENTE = '" + req.body.cliente.clave + "'",
             function(err, rsl) {
-               console.log("Autenticación exitosa...");
-               res.redirect('/dashboard');
+               if (err) {
+                  console.log("Ha ocurrido un error...");
+                  res.redirect("/");
+               }
+
+               if (isEmpty(rsl)) {
+                  console.log("No se encontró usuario...");
+                  res.redirect('/');
+               } else {
+                  console.log("Autenticación exitosa...");
+                  res.redirect('/dashboard');
+               }
+
                db.detach();
          });
       }
    });
 });
+
+function isEmpty(obj) {
+   for(var key in obj) {
+      if (hasOwnProperty.call(obj, key))
+         return false;
+   }
+
+   return true;
+}
 
 module.exports = router;
