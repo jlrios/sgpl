@@ -6,7 +6,7 @@ var options = {};
 
 options.host = 'localhost';
 options.port = 3050;
-options.database = 'C:\\Firebird\\DEMO.fdb';
+options.database = '/home/jlrd/Documents/Firebird/DEMO.fdb';
 options.user = 'SYSDBA';
 options.password = 'masterkey';
 options.role = null;
