@@ -13,8 +13,6 @@ app.set('view engine', 'jade');
 // Se le indica a express que debe utilizar el direcotio public
 app.use(express.static(__dirname + '/public'));
 
-app.use(express.static(__dirname + '/vendor'));
-
 app.use(bodyParser.urlencoded({
    extended:true
 }));

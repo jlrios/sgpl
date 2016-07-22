@@ -5,8 +5,9 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "flag-icon-css": "^2.3.0",
     "jade": "^1.11.0",
-    "node-firebird": "^0.7.4",
+    "node-firebird": "^0.7.4"
   },
   "devDependencies": {},
   "scripts": {

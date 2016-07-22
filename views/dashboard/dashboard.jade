@@ -1,34 +1,49 @@
 doctype html
 html
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    meta(name="apple-mobile-web-app-capable" content="yes")
+  include ../includes/head.jade
 
-    link(rel="stylesheet" href="/css/notify/jquery.notify.css" type="text/css")
-    
-    script(src="/js/jquery/jquery.min.js")
-    script(src="/js/notify/jquery.notify.min.js")
-    
-    title= title
+body(class="container-fluid")
+  div(id="page-wrapper")
+    aside(id="left-content" data-toggle="open" data-default="open" data-size="")
+      header(class="header-container")
+        div(class="header-wrapper")
+          div(id="header-brand")
+            div(class="logo padding-left-2")
+              span(class="logo-image") LD
+              span(class="logo-text") SGPL
+      
+      div(id="sidebar-wrapper")
+        div(id="userbox")
+          div(id="useravatar")
+            div(class="avatar-thumbnail")
+              img(src="/img/avatar/avatar_square_blue.png" class="img-circle")
 
-body
-   h1 Todo OK hasta aquí panzón.
-   a(href="/") Regresar
+          div(id="userinfo")
+            div(class="btn-group")
+              button(type="button" class="btn btn-default-bright btn-flat dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+                | Nombre del usuario
+                i(class="material-icons") arrow_drop_down
+              ul(class="dropdown-menu")
+                li
+                  a(href="#")
+                    i(class="material-icons") person
+                    span(data-i18n="userinfo.profile") Perfil
+                li
+                  a(href="#")
+                    i(class="material-icons") settings
+                    span(data-i18n="userinfo.settings") Preferencias
+                li(class="divider-horizontal")
+                li
+                  a(href="#")
+                    i(class="material-icons") lock
+                    span(data-i18n="userinfo.lock") Bloquear
+                li(class="divider-horizontal")
+                li
+                  a(href="#")
+                    i(class="material-icons") exit_to_app
+                    span(data-i18n="userinfo.logout") Cerrar sesión
+      
+        include ../includes/sidebar.jade
+    include ../includes/header-container
 
-   script.
-      $(window).load(function() {
-         notify({
-            type: "success", 
-            title: "Autenticación exitosa",
-            position: {
-               x: "right", 
-               y: "top" 
-            },
-            icon: '<img src="img/paper_plane.png" />',
-            message: "Se ha autenticado e iniciado sesión exitosamente.",
-            autoHide: true,
-            delay: 2500
-         });
-      });
+include ../includes/scripts.jade
