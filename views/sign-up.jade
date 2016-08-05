@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+
+    link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
+    link(rel="stylesheet" href="/css/themes/theme-default/bemat-admin.css" id="theme-switcher")
+
+    title= title
+
+  body(id="page-authentication" class="container-fluid")
+    div(id="authentication-box" class="authentication-style1")
+      div(class="authentication-box-wrapper")
+        div(class="panel panel-default")
+          div(class="panel-body no-padding")
+            div(class="authentication-header")
+              div(class="logo-box logo-box-primary-light padding-top-4")
+                div(class="logo")
+                  b LD
+              span
+                Create an account
+
+            div(class="authentication-body")
+              form(class="form" role="form" action="")
+                div(class="form-group floating-label")
+                  input(type="text" class="form-control" id="regular2" name="nombreCompleto")
+                  label(for="regular2") Nombre Completo
+                div(class="form-group floating-label")
+                  input(type="text" class="form-control" id="regular2" name="domicilio")
+                  label(for="domicilio") Domicilio
+                div(class="form-group floating-label")
+                  input(type="text" class="form-control" id="regular2" name="numeroInterior")
+                  label(for="numeroInterior") Numero Interior
+                div(class="form-group floating-label")
+                  input(type="text" class="form-control" id="regular2" name="numeroExterior")
+                  label(for="numeroExterior") Numero Exterior
+                div(class="form-group floating-label")
+                  input(type="email" class="form-control" id="email")
+                  label(for="email") E-mail address
+                div(class="form-group floating-label")
+                  input(type="text" class="form-control" id="regular2" name="rfc")
+                  label(for="rfc") RFC
+                div(class="")
+                  label
+                    input(class="checkbox checkbox-primary" type="checkbox")
+                    span
+                      Agree the
+                        a(href="#") terms and conditions
+                div(class="form-group")
+                  button(type="submit" class="btn btn-info btn-raised btn-block") Sign up
+
+    script(src="/js/jquery/jquery.min.js")
+    script(src="/js/bootstrap/bootstrap.min.js")
+    script(src="/js/jquery/jquery-ui.custom.min.js" type="text/javascript")
+    script(src="/js/modernizr-custom-3.3.1.js" type="text/javascript")
+    script(src="/vendor/iCheck/icheck.min.js" type="text/javascript")
