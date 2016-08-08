@@ -7,7 +7,6 @@ html
     meta(name="apple-mobile-web-app-capable" content="yes")
 
     link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
-    link(rel="stylesheet" href="/css/themes/theme-default/bemat-admin.css" id="theme-switcher")
 
     title= title
 
@@ -20,37 +19,38 @@ html
               div(class="logo-box logo-box-primary-light padding-top-4")
                 div(class="logo")
                   b LD
-              span
-                Create an account
+              span Crear una cuenta en el SGPL
 
-            div(class="authentication-body")
-              form(class="form" role="form" action="")
-                div(class="form-group floating-label")
-                  input(type="text" class="form-control" id="regular2" name="nombreCompleto")
-                  label(for="regular2") Nombre Completo
-                div(class="form-group floating-label")
-                  input(type="text" class="form-control" id="regular2" name="domicilio")
-                  label(for="domicilio") Domicilio
-                div(class="form-group floating-label")
-                  input(type="text" class="form-control" id="regular2" name="numeroInterior")
-                  label(for="numeroInterior") Numero Interior
-                div(class="form-group floating-label")
-                  input(type="text" class="form-control" id="regular2" name="numeroExterior")
-                  label(for="numeroExterior") Numero Exterior
-                div(class="form-group floating-label")
-                  input(type="email" class="form-control" id="email")
-                  label(for="email") E-mail address
-                div(class="form-group floating-label")
-                  input(type="text" class="form-control" id="regular2" name="rfc")
-                  label(for="rfc") RFC
-                div(class="")
+          div(class="authentication-body")
+            form(class="form" role="form" )
+              div(class="form-group")
+                input(type="text" class="form-control " id="regular2" name="nombreCompleto")
+                label(for="regular2") Nombre Completo
+              div(class="form-group")
+                input(type="text" class="form-control " id="regular2" name="domicilio")
+                label(for="domicilio") Domicilio
+              div(class="form-group")
+                input(type="text" class="form-control " id="regular2" name="numeroInterior")
+                label(for="numeroInterior") Numero Interior
+              div(class="form-group")
+                input(type="text" class="form-control " id="regular2" name="numeroExterior")
+                label(for="numeroExterior") Numero Exterior
+              div(class="form-group")
+                input(type="email" class="form-control" id="email")
+                label(for="email") E-mail address
+              div(class="form-group")
+                input(type="text" class="form-control " id="regular2" name="rfc")
+                label(for="rfc") RFC
+
+              div(class="authentication-body-footer margin-top-5")
+                div
                   label
                     input(class="checkbox checkbox-primary" type="checkbox")
-                    span
-                      Agree the
-                        a(href="#") terms and conditions
-                div(class="form-group")
-                  button(type="submit" class="btn btn-info btn-raised btn-block") Sign up
+                    span Estoy de acuerdo con los terminos y condiciones
+
+              a(href="/" class="btn btn-primary btn-xl page-scroll") Signup/Home
+
+
 
     script(src="/js/jquery/jquery.min.js")
     script(src="/js/bootstrap/bootstrap.min.js")

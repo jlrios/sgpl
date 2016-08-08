@@ -8,7 +8,7 @@ html
 
     link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
     link(rel="stylesheet" href="/css/themes/theme-default/bemat-admin.css" id="theme-switcher")
-    
+
     title= title
 
   body(id="page-authentication" class="container-fluid")
@@ -26,24 +26,23 @@ html
             form(class="form" role="form" action="authenticate" method='post')
               div(class="form-group")
                 input(type="text" class="form-control" id="placeholder1" placeholder="Número de usuario" name="cliente[numero]")
-              
+
               div(class="form-group floating-label")
                 input(type="password" class="form-control" id="password" placeholder="Contraseña" name="cliente[clave]")
-              
+
               button(type="submit" class="btn btn-info btn-raised btn-block") Aceptar
-              
+
               div(class="authentication-body-footer margin-top-5")
                 div
                   label
                     input(class="checkbox checkbox-primary" type="checkbox")
                     span Recordar mis datos
-                
+
                 div(class="text-right")
                   a(href="page-authentication-forgot-password.html") ¿No puedes iniciar sesión?
-                  
+
     script(src="/js/jquery/jquery.min.js")
     script(src="/js/bootstrap/bootstrap.min.js")
     script(src="/js/jquery/jquery-ui.custom.min.js" type="text/javascript")
     script(src="/js/modernizr-custom-3.3.1.js" type="text/javascript")
     script(src="/vendor/iCheck/icheck.min.js" type="text/javascript")
-  
