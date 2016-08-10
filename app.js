@@ -1,8 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var passport = require('passport');
 
 var routes = require('./routes/routes');
-var db = require('./modules/db');
+var authenticate = require('./modules/authenticate');
 
 var app = express();
 
@@ -18,9 +19,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
-app.use('/', db);
+app.use('/', authenticate);
 
 http.listen(3000, function() {
    console.log("Escuchando por el puerto *:3000...");
