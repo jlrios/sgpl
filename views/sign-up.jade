@@ -8,17 +8,15 @@ html
 
     link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
     link(rel="stylesheet" href="/css/the-big-picture.css" type="text/css")
-    link(rel="stylesheet" href="/css/switchery/switchery.min.css" type="text/css")
-
+    
     script(src="/js/jquery/jquery.min.js")
     script(src="/js/bootstrap/bootstrap.min.js")
-    script(src="/js/switchery/switchery.min.js")
-
+    
     title= title
 
 body(class="full")
-  div(class="modal fade" tabindex="-1" role="dialog" id="loginModal")
-    div(class="modal-dialog modal-lg")
+  div(class="modal fade" tabindex="-1" role="dialog" id="signupModal")
+    div(class="modal-dialog modal-md")
       div(class="modal-content")
         div(class="modal-header")
           button(type="button" class="close" data-dismiss="modal" aria-label="Cerrar")
@@ -26,38 +24,45 @@ body(class="full")
           h2(class="modal-title") SGPL
           h4(class="modal-title") Sistema para la Gestión de Pedidos en Línea
         div(class="modal-body")
-          form(class="form-horizontal" action="/authenticate" method='post')
+          form(class="form-horizontal" action="/" method="")
             h3 Preregistro de Usuario
             div(class="form-group")
               div(class="col-sm-12")
-                div(class="input-group")
-                  span(class="input-group-addon")
-                    i(class="glyphicon glyphicon-user")
-                  input(type="text" class="form-control" placeholder="Nombre Completo" name="nombreCompleto")
-                  input(type="text" class="form-control" placeholder="Domicilio" name="domicilio")
-                  input(type="text" class="form-control" placeholder="Numero Interior" name="numeroInterior")
-                  input(type="text" class="form-control" placeholder="Numero Exterior" name="numeroExterior")
-                  input(type="text" class="form-control" placeholder="Correo Electronico" name="email")
-                  input(type="text" class="form-control" placeholder="RFC" name="rfc")
+                input(type="text" class="form-control" placeholder="Nombre Completo" name="nombreCompleto")
+            
+            div(class="form-group")
+              div(class="col-sm-12")
+                input(type="text" class="form-control" placeholder="Domicilio" name="domicilio")
+              
+            div(class="form-group")
+              div(class="col-sm-12")  
+                input(type="text" class="form-control" placeholder="Numero Interior" name="numeroInterior")
+              
+            div(class="form-group")
+              div(class="col-sm-12")
+                input(type="text" class="form-control" placeholder="Numero Exterior" name="numeroExterior")
+            
+            div(class="form-group")
+              div(class="col-sm-12")  
+                input(type="text" class="form-control" placeholder="Correo Electronico" name="email")
+              
+            div(class="form-group")
+              div(class="col-sm-12")  
+                input(type="text" class="form-control" placeholder="RFC" name="rfc")
 
             div(class="form-group")
               div(class="col-sm-12")
                 input(type="submit" value="Aceptar" class="btn btn-primary btn-block")
         div(class="modal-footer")
-          br
-          |.
+          a(href="/signin") Regresar al Inicio de sesión
 
 script.
   $(window).load(function() {
-    $('#loginModal').modal('show');
+    $('#signupModal').modal('show');
   });
 
   $(document).ready(function() {
-    // Aplicar estílo a los Checkboxes.
-    var checkBox = document.querySelector('.js-switch');
-    var init = new Switchery(checkBox, {size: 'small'});
-
-    $('#loginModal').on('hidden.bs.modal', function (e) {
+    $('#signupModal').on('hidden.bs.modal', function (e) {
       window.location.href="/";
     });
   });
