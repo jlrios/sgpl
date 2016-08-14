@@ -8,15 +8,15 @@ html
 
     link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
     link(rel="stylesheet" href="/css/the-big-picture.css" type="text/css")
-    
+
     script(src="/js/jquery/jquery.min.js")
     script(src="/js/bootstrap/bootstrap.min.js")
-    
+
     title= title
 
 body(class="full")
   div(class="modal fade" tabindex="-1" role="dialog" id="signupModal")
-    div(class="modal-dialog modal-md")
+    div(class="modal-dialog modal-lg")
       div(class="modal-content")
         div(class="modal-header")
           button(type="button" class="close" data-dismiss="modal" aria-label="Cerrar")
@@ -25,36 +25,99 @@ body(class="full")
           h4(class="modal-title") Sistema para la Gestión de Pedidos en Línea
         div(class="modal-body")
           form(class="form-horizontal" action="/" method="")
-            h3 Preregistro de Usuario
-            div(class="form-group")
-              div(class="col-sm-12")
-                input(type="text" class="form-control" placeholder="Nombre Completo" name="nombreCompleto")
-            
-            div(class="form-group")
-              div(class="col-sm-12")
-                input(type="text" class="form-control" placeholder="Domicilio" name="domicilio")
-              
-            div(class="form-group")
-              div(class="col-sm-12")  
-                input(type="text" class="form-control" placeholder="Numero Interior" name="numeroInterior")
-              
-            div(class="form-group")
-              div(class="col-sm-12")
-                input(type="text" class="form-control" placeholder="Numero Exterior" name="numeroExterior")
-            
-            div(class="form-group")
-              div(class="col-sm-12")  
-                input(type="text" class="form-control" placeholder="Correo Electronico" name="email")
-              
-            div(class="form-group")
-              div(class="col-sm-12")  
-                input(type="text" class="form-control" placeholder="RFC" name="rfc")
+            h4 Preregistro de Usuario
+            div(class="header-content-inner")
+              hr
+              p Si usted es un dstribuidor de Lockstep Design y desea hacer uso de nuestro Sistema para la Gestion de Pedidos en Linea,por favor
+              p complete la información solicitada en el presente formulario para ser registrado, un correo electrónico de confirmación e instrucciones
+              p le sera enviado una vez que los datos proporcionados hallan sido verificados.
 
             div(class="form-group")
-              div(class="col-sm-12")
-                input(type="submit" value="Aceptar" class="btn btn-primary btn-block")
+            h4 Cliente
+            span
+              div(class="row")
+                div(class="col-md-8")
+                  input(type="text" class="form-control" placeholder="Nombre Completo/Razón Social" name="nombreCompleto")
+                div(class="col-md-4")
+                  input(type="text" class="form-control" placeholder="RFC/CURP" name="rfc")
+
+            div(class="form-group")
+            h4 Domicilio
+            span
+              div(class="row")
+                div(class="col-md-8")
+                  input(type="text" class="form-control" placeholder="Calle" name="calle")
+                div(class="col-md-2")
+                  input(type="text" class="form-control" placeholder="Numero Ext." name="numeroExterior")
+                div(class="col-md-2")
+                  input(type="text" class="form-control" placeholder="Numero Int." name="numeroInterior")
+
+            div(class="form-group")
+            span
+              div(class="row")
+                div(class="col-md-6")
+                  input(type="text" class="form-control" placeholder="Colonia" name="colonia")
+                div(class="col-md-3")
+                  input(type="text" class="form-control" placeholder="C.P." name="codigopostal")
+
+            div(class="form-group")
+            span
+              div(class="row")
+                div(class="col-md-4")
+                  input(type="text" class="form-control" placeholder="Poblacion" name="poblacion")
+
+
+                div(class="col-md-3 col-md-offset-1")
+                  div(class="dropdown")
+                    button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
+                      | Ciudad
+                      Dropdown
+                        span(class="caret")
+                    ul(class="dropdown-menu" aria-labelledby="dropdownMenu1")
+                        li Chihuahua
+                        li Delicias
+                        li Juarez
+                        li Cuauhtemoc
+                        li Camargo
+                div(class="col-md-3 col-md-offset-1")
+                  div(class="dropdown")
+                    button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
+                      | Estado
+                      Dropdown
+                        span(class="caret")
+                    ul(class="dropdown-menu" aria-labelledby="dropdownMenu1")
+                          li Chihuahua
+                          li Sonora
+                          li Sinaloa
+                          li Durango
+                          li Coahuila
+
+
+            div(class="form-group")
+            h4 Telefonos y correo electrónico
+            span
+              div(class="row")
+                div(class="col-md-4")
+                  input(type="text" class="form-control" placeholder="Telefono 1" name="telefono1")
+                div(class="col-md-4")
+                  input(type="text" class="form-control" placeholder="Telefono 2" name="telfono2")
+
+            div(class="form-group")
+            span
+              div(class="row")
+                div(class="col-md-4")
+                  input(type="text" class="form-control" placeholder="Correo electrónico" name="email")
+
+
+            div(class="form-group")
+            span
+              div(class="row")
+                div(class="col-md-3 col-md-offset-3")
+                div(class="col-md-3 col-md-offset-3")
+                  input(type="submit" value="Aceptar" class="btn btn-primary")
+
         div(class="modal-footer")
-          a(href="/signin") Regresar al Inicio de sesión
+          a(href="/") Regresar al Inicio
 
 script.
   $(window).load(function() {
