@@ -1,49 +1,7 @@
-doctype html
-html
-  include ../includes/head.jade
+extends ../layout
 
-body(class="container-fluid")
-  div(id="page-wrapper")
-    aside(id="left-content" data-toggle="open" data-default="open" data-size="")
-      header(class="header-container")
-        div(class="header-wrapper")
-          div(id="header-brand")
-            div(class="logo padding-left-2")
-              span(class="logo-image") LD
-              span(class="logo-text") SGPL
-      
-      div(id="sidebar-wrapper")
-        div(id="userbox")
-          div(id="useravatar")
-            div(class="avatar-thumbnail")
-              img(src="/img/avatar/avatar_square_blue.png" class="img-circle")
-
-          div(id="userinfo")
-            div(class="btn-group")
-              button(type="button" class="btn btn-default-bright btn-flat dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-                | Nombre del usuario
-                i(class="material-icons") arrow_drop_down
-              ul(class="dropdown-menu")
-                li
-                  a(href="#")
-                    i(class="material-icons") person
-                    span(data-i18n="userinfo.profile") Perfil
-                li
-                  a(href="#")
-                    i(class="material-icons") settings
-                    span(data-i18n="userinfo.settings") Preferencias
-                li(class="divider-horizontal")
-                li
-                  a(href="#")
-                    i(class="material-icons") lock
-                    span(data-i18n="userinfo.lock") Bloquear
-                li(class="divider-horizontal")
-                li
-                  a(href="/logout")
-                    i(class="material-icons") exit_to_app
-                    span(data-i18n="userinfo.logout") Cerrar sesión
-      
-        include ../includes/sidebar.jade
-    include ../includes/header-container
-
-include ../includes/scripts.jade
+block content
+  include ../includes/top-bar
+  include ../includes/left-menu
+  include ../includes/content
+  include ../includes/footer

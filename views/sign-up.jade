@@ -1,4 +1,5 @@
 doctype html
+
 html
   head
     meta(charset="utf-8")
@@ -6,13 +7,17 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="apple-mobile-web-app-capable" content="yes")
 
-    link(rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css")
-    link(rel="stylesheet" href="/css/the-big-picture.css" type="text/css")
-
-    script(src="/js/jquery/jquery.min.js")
-    script(src="/js/bootstrap/bootstrap.min.js")
-
     title= title
+    
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet")
+    link(href="/css/cover/the-big-picture.css" rel="stylesheet")
+
+    script(src="/js/ie-emulation-modes-warning.js")
+    script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
+    script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.min.js")
 
 body(class="full")
   div(class="modal fade" tabindex="-1" role="dialog" id="signupModal")
@@ -24,100 +29,67 @@ body(class="full")
           h2(class="modal-title") SGPL
           h4(class="modal-title") Sistema para la Gestión de Pedidos en Línea
         div(class="modal-body")
-          form(class="form-horizontal" action="/" method="")
-            h4 Preregistro de Usuario
-            div(class="header-content-inner")
-              hr
-              p Si usted es un dstribuidor de Lockstep Design y desea hacer uso de nuestro Sistema para la Gestion de Pedidos en Linea,por favor
-              p complete la información solicitada en el presente formulario para ser registrado, un correo electrónico de confirmación e instrucciones
-              p le sera enviado una vez que los datos proporcionados hallan sido verificados.
-
-            div(class="form-group")
-            h4 Cliente
-            span
-              div(class="row")
-                div(class="col-md-8")
+          form(action="/" method="")
+            div(class="panel panel-primary")
+              div(class="panel-heading")
+                span(class="glyphicon glyphicon-info-sign")
+                strong  Información
+              div(class="panel-body")
+                | Si usted es un distribuidor de 
+                strong Lockstep Design 
+                | y desea hacer uso de nuestro Sistema para la Gestión de Pedidos en Línea, por favor complete la información solicitada en el presente formulario, para ser registrado, un correo electrónico de confirmación e instrucciones, le será enviado una vez que los datos proporcionados hayan sido verificados.
+            
+            table(style="width: 100%;")
+              tr
+                td(colspan="6")
+                  h4 Registro de Usuario
+              tr(style="border-bottom: 1px solid #a4a4a4;")
+                td(colspan="6" style="padding-bottom: 10px;")
+                  strong Cliente
+              tr
+                td(colspan="5" style="padding-bottom: 15px; padding-top: 15px; padding-right: 10px;")
                   input(type="text" class="form-control" placeholder="Nombre Completo/Razón Social" name="nombreCompleto")
-                div(class="col-md-4")
-                  input(type="text" class="form-control" placeholder="RFC/CURP" name="rfc")
-
-            div(class="form-group")
-            h4 Domicilio
-            span
-              div(class="row")
-                div(class="col-md-8")
+                td(colspan="1" style="padding-bottom: 15px; padding-top: 15px;")
+                  input(type="text" class="form-control" placeholder="RFC/CURP" name="rfcCurp")
+              tr(style="border-bottom: 1px solid #a4a4a4;")
+                td(colspan="6" style="padding-bottom: 10px;")
+                  strong Domicilio
+              tr
+                td(colspan="4" style="padding-bottom: 15px; padding-top: 15px; padding-right: 10px;")
                   input(type="text" class="form-control" placeholder="Calle" name="calle")
-                div(class="col-md-2")
-                  input(type="text" class="form-control" placeholder="Numero Ext." name="numeroExterior")
-                div(class="col-md-2")
-                  input(type="text" class="form-control" placeholder="Numero Int." name="numeroInterior")
-
-            div(class="form-group")
-            span
-              div(class="row")
-                div(class="col-md-6")
+                td(colspan="1" style="padding-bottom: 15px; padding-top: 15px; padding-right: 10px;")
+                  input(type="text" class="form-control" placeholder="Numero ext." name="numeroExterior")
+                td(colspan="1" style="padding-bottom: 15px; padding-top: 15px;")
+                  input(type="text" class="form-control" placeholder="Numero int." name="numeroInterior")
+              tr
+                td(colspan="5" style="padding-bottom: 15px; padding-right: 10px;")
                   input(type="text" class="form-control" placeholder="Colonia" name="colonia")
-                div(class="col-md-3")
-                  input(type="text" class="form-control" placeholder="C.P." name="codigopostal")
-
-            div(class="form-group")
-            span
-              div(class="row")
-                div(class="col-md-4")
-                  input(type="text" class="form-control" placeholder="Poblacion" name="poblacion")
-
-
-                div(class="col-md-3 col-md-offset-1")
-                  div(class="dropdown")
-                    button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
-                      | Ciudad
-                      Dropdown
-                        span(class="caret")
-                    ul(class="dropdown-menu" aria-labelledby="dropdownMenu1")
-                        li Chihuahua
-                        li Delicias
-                        li Juarez
-                        li Cuauhtemoc
-                        li Camargo
-                div(class="col-md-3 col-md-offset-1")
-                  div(class="dropdown")
-                    button(class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
-                      | Estado
-                      Dropdown
-                        span(class="caret")
-                    ul(class="dropdown-menu" aria-labelledby="dropdownMenu1")
-                          li Chihuahua
-                          li Sonora
-                          li Sinaloa
-                          li Durango
-                          li Coahuila
-
-
-            div(class="form-group")
-            h4 Telefonos y correo electrónico
-            span
-              div(class="row")
-                div(class="col-md-4")
-                  input(type="text" class="form-control" placeholder="Telefono 1" name="telefono1")
-                div(class="col-md-4")
-                  input(type="text" class="form-control" placeholder="Telefono 2" name="telfono2")
-
-            div(class="form-group")
-            span
-              div(class="row")
-                div(class="col-md-4")
-                  input(type="text" class="form-control" placeholder="Correo electrónico" name="email")
-
-
-            div(class="form-group")
-            span
-              div(class="row")
-                div(class="col-md-3 col-md-offset-3")
-                div(class="col-md-3 col-md-offset-3")
-                  input(type="submit" value="Aceptar" class="btn btn-primary")
-
+                td(colspan="1" style="padding-bottom: 15px;")
+                  input(type="text" class="form-control" placeholder="C. P." name="codigoPostal")
+              tr
+                td(colspan="4" style="padding-bottom: 15px; padding-right: 10px;")
+                  input(type="text" class="form-control" placeholder="Población" name="poblacion")
+                td(colspan="1" style="padding-bottom: 15px; padding-right: 10px;")
+                  select(class="form-control")
+                    option Ciudad
+                td(colspan="1" style="padding-bottom: 15px;")
+                  select(class="form-control")
+                    option Estado
+              tr(style="border-bottom: 1px solid #a4a4a4;")
+                td(colspan="6" style="padding-bottom: 10px;")
+                  strong Teléfonos y Correo electrónico
+              tr
+                td(colspan="4" style="padding-bottom: 15px; padding-top: 15px; padding-right: 10px;")
+                  input(type="text" class="form-control" placeholder="Teléfono 1" name="telefono1")
+                td(colspan="1" style="padding-bottom: 15px; padding-top: 15px; padding-right: 10px;")
+                  input(type="text" class="form-control" placeholder="Teléfono 2" name="telefono2")
+                td(colspan="1" style="padding-bottom: 15px; padding-top: 15px;")
+                  input(type="text" class="form-control" placeholder="Correo electrónico" name="correoElectronico")
+              tr
+                td(colspan="6")
+                  input(type="submit" value="Aceptar" class="btn btn-primary" style="float: right; width: 150px;")
         div(class="modal-footer")
-          a(href="/") Regresar al Inicio
+          a(href="/") Regresar a Inicio
 
 script.
   $(window).load(function() {

@@ -1,35 +1,48 @@
-extends home
+doctype html
 
-block content
-  nav(id="mainNav" class="navbar navbar-default navbar-fixed-top")
-    div(class="container-fluid")
-      div(class="navbar-header")
-        button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
-          span(class="sr-only") Toggle navigation
-          span(class="icon-bar")
-          span(class="icon-bar")
-          span(class="icon-bar")
-        a(class="navbar-brand page-scroll" href="/") LOCKSTEP DESIGN
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    
+    title= title
 
-      div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
-        ul(class="nav navbar-nav navbar-right")
-          li
-            a(class="page-scroll" href="#") Acerca de
-          li
-            a(class="page-scroll" href="#") Ayuda
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet")
+    link(href="/css/cover/cover.css" rel="stylesheet")
 
-  header
-    div(class="header-content")
-      div(class="header-content-inner")
-        h1 SGPL
-        h1 SISTEMA PARA LA GESTIÓN DE PEDIDOS EN LÍNEA
-        h2 AHORA SUS PEDIDOS SON MUCHO MÁS FÁCILES DE HACER
-        hr
-        p El SGPL es una aplicación Web que les permite a nuestros clientes, llevar una gestión integral de todos sus pedidos, para ello inicie sesión o bien solicite ser registrado.
-        a(href="/signin" class="btn btn-primary btn-xl page-scroll") Iniciar sesión
-        br
-        br
-        a(href="/signup" class="btn btn-primary btn-xl page-scroll") Solicitar registro
-        br
-        br
-        
+    script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
+    script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+    script(src="/js/ie-emulation-modes-warning.js")
+
+  body
+    div(class="site-wrapper")
+      div(class="site-wrapper-inner")
+        div(class="cover-container")
+          div(class="masthead clearfix")
+            div(class="inner")
+              h3(class="masthead-brand") LOCKSTEP DESIGN
+              nav
+                ul(class="nav masthead-nav")
+                  li
+                    a(href="#") AYUDA
+                  li 
+                    a(href="#") ACERCA DE
+          div(class="inner cover")
+            h1(class="cover-heading") SGPL
+            h1(class="cover-heading") Sistema para la Gestión de Pedidos en Línea
+            p(class="lead") El SGPL es una aplicación Web que les permite a nuestros clientes, llevar una gestión integral de todos sus pedidos, de una manera rápida y sencilla. Para ello inicie sesión o bien solicite ser registrado.
+            p(class="lead")
+              a(href="/signin" class="btn btn-lg btn-default") Iniciar sesión
+              br
+              br
+              a(href="/signup" class="btn btn-lg btn-default") Solicitar registro
+          div(class="mastfoot")
+            div(class="inner")
+              p &copy 2016 SGPL.
+                a(href="#") Máynez-Ríos
+
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/js/ie10-viewport-bug-workaround.js")

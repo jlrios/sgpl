@@ -3,23 +3,17 @@
   "version": "1.0.0",
   "description": "Sistema para la Gestión de Pedidos en Línea",
   "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "caminte": "^0.2.13",
-    "flag-icon-css": "^2.3.0",
-    "jade": "^1.11.0",
-    "node-firebird": "^0.7.4",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/sgigio75/SGPL"
-  },
   "author": "Máynez-Ríos",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "node-firebird": "^0.7.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
 }
