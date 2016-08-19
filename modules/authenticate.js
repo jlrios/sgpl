@@ -76,7 +76,17 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(id, done) {
-
+  firebird.attach(options, function(err, db) {
+    if (err) {
+      console.log('Ha ocurrido un error...');
+      throw err;
+      return done(err);
+    } else {
+      db.query("SELECT * FROM CLAVES_CLIENTES WHERE CLIENTE_ID = " + id), function(err, rsl) {
+        done(err, rsl[0]);
+      }
+    }
+  });
 });
 
 function isEmpty(obj) {
@@ -84,7 +94,6 @@ function isEmpty(obj) {
       if (hasOwnProperty.call(obj, key))
          return false;
    }
-
    return true;
 }
 
