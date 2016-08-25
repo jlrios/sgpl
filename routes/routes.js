@@ -13,8 +13,9 @@ router.get('/signup', function(req, res) {
   res.render('sign-up', {title: 'SGPL | Pre Registro de Usuario'});
 });
 
-router.get('/dashboard', ensureAuthenticated, function(req, res) {
-   res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});
+router.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res) {
+    res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});
 })
 
 router.get('/logout', function(req, res) {
@@ -22,14 +23,5 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
   console.log('Sesión cerrada.');
 });
-
-function ensureAuthenticated(req, res, next) {
-  console.log("Entro.");
-  console.log(req.isAuthenticated());
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/');
-}
 
 module.exports = router;

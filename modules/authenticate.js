@@ -18,9 +18,6 @@ options.password = 'masterkey';
 options.role = null;
 options.pageSize = 4096;
 
-passport.initialize();
-passport.session();
-
 router.post('/authenticate', passport.authenticate('local', {
   successRedirect: '/dashboard',
   failureRedirect: '/'
@@ -72,21 +69,11 @@ passport.use(new localStrategy(
 }));
 
 passport.serializeUser(function(user, done){
-  done(null, user);
+  done(null, user.CLIENTE_ID  );
 });
 
 passport.deserializeUser(function(id, done) {
-  firebird.attach(options, function(err, db) {
-    if (err) {
-      console.log('Ha ocurrido un error...');
-      throw err;
-      return done(err);
-    } else {
-      db.query("SELECT * FROM CLAVES_CLIENTES WHERE CLIENTE_ID = " + id), function(err, rsl) {
-        done(err, rsl[0]);
-      }
-    }
-  });
+  done(null, id);
 });
 
 function isEmpty(obj) {

@@ -1,9 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var expressSession = require('express-session');
-var cookieParser = require('cookie-parser')
-
 var routes = require('./routes/routes');
 var authenticate = require('./modules/authenticate');
 
@@ -20,9 +17,11 @@ app.use(bodyParser.urlencoded({
    extended:true
 }));
 
-app.use(cookieParser());
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('express-session')({secret: '1Txp3rt$#!', resave: false, saveUninitialized: false}));
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
