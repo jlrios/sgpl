@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var firebird = require('node-firebird');
+var Clientes = require('../models/CLAVES_CLIENTES');
 
 //Autenticación con passport, se define una estrategia local
 var passport = require('passport');
@@ -11,12 +12,27 @@ var options = {};
 options.host = 'localhost';
 options.port = 3050;
 //Ruta de conexión con Windows
-//options.database = 'c://Firebird/DEMO.fdb';
-options.database = '/home/jlrd/Documents/Firebird/DEMO.fdb';
+options.database = 'c://Firebird/DEMO.fdb';
+//options.database = '/home/jlrd/Documents/Firebird/DEMO.fdb';
 options.user = 'SYSDBA';
 options.password = 'masterkey';
 options.role = null;
 options.pageSize = 4096;
+
+var caminte = require('caminte'),
+    Schema = caminte.Schema,
+    config = {
+         driver     : "firebird",
+         host       : "localhost",
+         port       : "3050",
+         username   : "SYSDBA",
+         password   : "masterkey",
+         database   : "c://Firebird/DEMO.fdb",
+        // pool       : true // optional for use pool directly
+    };
+
+var schema = new Schema(config.driver, config);
+
 
 router.post('/authenticate', passport.authenticate('local', {
   successRedirect: '/dashboard',
@@ -59,6 +75,7 @@ passport.use(new localStrategy(
                  return done(null, false, {message: 'No se encontró usuario...'});
               } else {
                  console.log("Autenticación exitosa...");
+
                  return done(null, rsl[0]);
               }
 
@@ -72,7 +89,13 @@ passport.serializeUser(function(user, done){
   done(null, user.CLIENTE_ID  );
 });
 
+var clientes = new Clientes();
+
 passport.deserializeUser(function(id, done) {
+  clientes.findOne({where: {CLAVE_CLIENTE_ID: id}}, function(err, post){
+     if (err) { return done (err)
+     }// your code here
+  });
   done(null, id);
 });
 
