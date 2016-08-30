@@ -1,6 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var morgan = require('morgan')('combined');
+var cookieParser = require('cookie-parser')();
+var expressSession = require('express-session');
+
 var routes = require('./routes/routes');
 var authenticate = require('./modules/authenticate');
 
@@ -10,18 +14,22 @@ var http = require('http').Server(app);
 
 app.set('view engine', 'jade');
 
-// Se le indica a express que debe utilizar el direcotio public
+//Se le indica a express que debe utilizar el direcotio public
 app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.urlencoded({
    extended:true
 }));
 
-app.use(require('morgan')('combined'));
-app.use(require('cookie-parser')());
-app.use(require('express-session')({secret: '1Txp3rt$#!', resave: false, saveUninitialized: false}));
+app.use(morgan);
+app.use(cookieParser);
 
-//app.use(bodyParser.json());
+app.use(expressSession({
+  secret: '1Txp3rt$#!',
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,4 +1,5 @@
 var express = require('express');
+var connectEnsureLogin = require('connect-ensure-login');
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -13,7 +14,7 @@ router.get('/signup', function(req, res) {
   res.render('sign-up', {title: 'SGPL | Pre Registro de Usuario'});
 });
 
-router.get('/dashboard', require('connect-ensure-login').ensureLoggedIn(),
+router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(),
   function(req, res) {
     res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});
 })
