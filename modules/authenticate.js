@@ -6,6 +6,7 @@ var firebird = require('node-firebird');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 
+//El objeto options guarda la configuración para la conexión a la base de datos
 var options = {};
 
 options.host = 'localhost';
@@ -27,14 +28,13 @@ passport.use(new localStrategy({
     usernameField: 'numero',
     passwordField: 'clave',
     passReqToCallback: true
-  },
-  function(req, numero, clave, done) {
+  }, function(req, numero, clave, done) {
     firebird.attach(options, function(err, db) {
       if (err) {
         console.log('Error al intentar conectar al servidor...');
         throw err;
         return done(err);
-     } else {
+      } else {
         console.log('Conectado a Firebird...');
         db.query(
            "SELECT " +
@@ -46,26 +46,27 @@ passport.use(new localStrategy({
               "CLIENTES b " +
            "WHERE " +
               "b.CLIENTE_ID = '" + numero + "' AND a.CLIENTE_ID = '" + numero + "' AND a.CLAVE_CLIENTE = '" + clave + "'",
-           function(err, rsl) {
-              if (err) {
-                 console.log("Ha ocurrido un error...");
-                 db.detach();
-                 return done(err);
-              }
-              if (isEmpty(rsl)) {
-                  db.detach();
-                 return done(null, false, {message: 'No se encontró usuario...'});
-              } else {
-                 console.log("Autenticación exitosa...");
-                 db.detach();
-                 return done(null, rsl[0]);
-              }
-          });
-     }
-  });
+        function(err, rsl) {
+          if (err) {
+            console.log("Ha ocurrido un error...");
+            db.detach();
+            return done(err);
+          }
+          if (isEmpty(rsl)) {
+            db.detach();
+            return done(null, false, {message: 'No se encontró usuario...'});
+          } else {
+            console.log("Autenticación exitosa...");
+            db.detach();
+            return done(null, rsl[0]);
+          }
+        });
+      }
+    }
+  );
 }));
 
-passport.serializeUser(function(user, done){
+passport.serializeUser(function(user, done) {
   done(null, user.CLIENTE_ID  );
 });
 
@@ -75,7 +76,7 @@ passport.deserializeUser(function(id, done) {
       throw err;
       return done(err);
     } else {
-      db.query("SELECT * FROM CLAVES_CLIENTES WHERE CLIENTE_ID = '" + id + "'", function(err, rsl) {
+      db.query("SELECT * FROM CLIENTES WHERE CLIENTE_ID = '" + id + "'", function(err, rsl) {
         if (err) {
           db.detach();
           return done(err);
