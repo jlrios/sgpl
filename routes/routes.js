@@ -18,6 +18,11 @@ router.get('/AyudaSGPL', function(req, res) {
   res.render('HelpSGPL', {title: 'SGPL | Ayuda de SGPL'});
 });
 
+router.get('/acercasgpl', function(req, res) {
+  res.render('aboutsgpl', {title: 'SGPL | Ayuda de SGPL'});
+});
+
+
 router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(),
   function(req, res) {
     res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});
