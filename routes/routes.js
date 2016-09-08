@@ -14,6 +14,10 @@ router.get('/signup', function(req, res) {
   res.render('sign-up', {title: 'SGPL | Pre Registro de Usuario'});
 });
 
+router.get('/AyudaSGPL', function(req, res) {
+  res.render('HelpSGPL', {title: 'SGPL | Ayuda de SGPL'});
+});
+
 router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(),
   function(req, res) {
     res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});

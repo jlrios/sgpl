@@ -8,7 +8,7 @@ html
     meta(name="apple-mobile-web-app-capable" content="yes")
 
     title= title
-    
+
     link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet")
     link(href="/css/bootstrap.min.css" rel="stylesheet")
     link(href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet")
@@ -39,8 +39,8 @@ body(class="full")
                 td(colspan="4")
                   h4 Registro de Usuario
                 td(colspan="2")
-                  button(type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Si usted es un distribuidor de Lockstep Design y desea hacer uso de nuestro Sistema para la Gestión de Pedidos en Línea, por favor complete la información solicitada en el presente formulario para ser registrado, un correo electrónico de confirmación e instrucciones le será enviado una vez que los datos proporcionados hayan sido verificados." style="float: right;") 
-                    span(class="glyphicon glyphicon-info-sign")
+                  button(type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Si usted es un distribuidor de Lockstep Design y desea hacer uso de nuestro Sistema para la Gestión de Pedidos en Línea, por favor complete la información solicitada en el presente formulario para ser registrado, un correo electrónico de confirmación e instrucciones le será enviado una vez que los datos proporcionados hayan sido verificados." style="float: right;")
+                   span(class="glyphicon glyphicon-info-sign")
               tr(style="border-bottom: 1px solid #a4a4a4;")
                 td(colspan="6" style="padding-bottom: 10px;")
                   strong Cliente
@@ -98,7 +98,7 @@ script.
     $('#signupModal').on('hidden.bs.modal', function (e) {
       window.location.href="/";
     });
-    
+
     $(function (){
       $("[data-toggle = 'popover']").popover({
           title: 'Información',
