@@ -1,2 +1,2 @@
 # SGPL
-Sistema para la Gestión de Pedidos en Línea
+Sistema para la Gestión de Pedidos en Línea.

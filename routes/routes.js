@@ -14,12 +14,12 @@ router.get('/signup', function(req, res) {
   res.render('sign-up', {title: 'SGPL | Pre Registro de Usuario'});
 });
 
-router.get('/AyudaSGPL', function(req, res) {
-  res.render('HelpSGPL', {title: 'SGPL | Ayuda de SGPL'});
+router.get('/help', function(req, res) {
+  res.render('help', {title: 'SGPL | Ayuda de SGPL'});
 });
 
-router.get('/acercasgpl', function(req, res) {
-  res.render('aboutsgpl', {title: 'SGPL | Ayuda de SGPL'});
+router.get('/about', function(req, res) {
+  res.render('about', {title: 'SGPL | Ayuda de SGPL'});
 });
 
 
