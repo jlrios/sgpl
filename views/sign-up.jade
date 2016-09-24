@@ -3,21 +3,16 @@ doctype html
 html
   head
     include ./includes/metas
+    include ./includes/styles
     
-    title= title
-
     link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet")
-    link(href="/css/bootstrap.min.css" rel="stylesheet")
-    link(href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet")
-    link(href="/css/cover/the-big-picture.css" rel="stylesheet")
     link(href="/css/popover/jquery.webui-popover.min.css" rel="stylesheet")
 
-    script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
-    script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
-    script(src="/js/ie-emulation-modes-warning.js")
-    script(src="/js/jquery.min.js")
-    script(src="/js/bootstrap.min.js")
+    include ./includes/js
+    
     script(src="/js/popover/jquery.webui-popover.min.js")
+
+    title= title
 
 body(class="full")
   div(class="modal fade" tabindex="-1" role="dialog" id="signupModal")
