@@ -11,7 +11,7 @@ router.get('/signin', function(req, res) {
 });
 
 router.get('/signup', function(req, res) {
-  res.render('sign-up', {title: 'SGPL | Pre Registro de Usuario'});
+  res.render('sign-up', {title: 'SGPL | Pre registro de Usuario'});
 });
 
 router.get('/help', function(req, res) {
@@ -19,13 +19,16 @@ router.get('/help', function(req, res) {
 });
 
 router.get('/about', function(req, res) {
-  res.render('about', {title: 'SGPL | Ayuda de SGPL'});
+  res.render('about', {title: 'SGPL | Acerca de SGPL'});
 });
 
 
-router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(),
+router.get('/dashboard/:user.distribuidor', connectEnsureLogin.ensureLoggedIn(),
   function(req, res) {
-    res.render('dashboard/dashboard', {title:'SGPL | Dashboard'});
+    res.render('dashboard/dashboard', {
+      title: 'SGPL | Dashboard',
+      user: req.params.user.distribuidor
+    });
 })
 
 router.get('/logout', function(req, res) {

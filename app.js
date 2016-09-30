@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-//var morgan = require('morgan')('combined');
+var morgan = require('morgan')('combined');
 var cookieParser = require('cookie-parser')();
 var expressSession = require('express-session');
 
