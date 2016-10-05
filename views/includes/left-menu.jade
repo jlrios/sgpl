@@ -4,14 +4,14 @@ aside(class="main-sidebar")
       div(class="pull-left image")
         img(src="/img/avatar5.png" class="img-circle" alt="Usuario.")
       div(class="pull-left info")
-        p= user
+        p= name
         a(href="#")
           i(class="fa fa-circle text-success")
           | Conectado
 
     form(action="#" method="get" class="sidebar-form")
       div(class="input-group")
-        input(type="text" name="q" class="form-control" placeholder="Buscar reporte...")
+        input(type="text" name="q" class="form-control" placeholder="Buscar pedido...")
         span(class="input-group-btn")
           button(type="submit" name="search" id="search-btn" class="btn btn-flat")
             i(class="fa fa-search")
@@ -24,8 +24,8 @@ aside(class="main-sidebar")
           span Dashboard
       li
         a(href="#")
-          i(class="fa fa-link")
-          span Opción 1
+          i(class="fa fa-files-o")
+          span Pedidos
       li(class="treeview")
         a(href="#")
           i(class="fa fa-link")

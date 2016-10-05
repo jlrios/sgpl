@@ -23,12 +23,14 @@ router.get('/about', function(req, res) {
 });
 
 
-router.get('/dashboard/:user.distribuidor', connectEnsureLogin.ensureLoggedIn(),
+router.get('/dashboard/', connectEnsureLogin.ensureLoggedIn(),
   function(req, res) {
+    //console.log(res.req.user);
     res.render('dashboard/dashboard', {
-      title: 'SGPL | Dashboard',
-      user: req.params.user.distribuidor
-    });
+    title: 'SGPL | Dashboard',
+    user: res.req.user.CLIENTE_ID,
+    name: res.req.user.NOMBRE
+  });
 })
 
 router.get('/logout', function(req, res) {

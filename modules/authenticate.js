@@ -9,9 +9,6 @@ var localStrategy = require('passport-local').Strategy;
 //El objeto options guarda la configuración para la conexión a la base de datos
 var options = {};
 
-//Objeto para guardar los datos del usuario.
-var user = {};
-
 options.host = 'localhost';
 options.port = 3050;
 //Ruta de conexión con Windows
@@ -23,8 +20,9 @@ options.role = null;
 options.pageSize = 4096;
 
 router.post('/authenticate', passport.authenticate('local', {
-  successRedirect: '/dashboard/:' + user.distribuidor,
+  successRedirect: '/dashboard/',
   failureRedirect: '/'
+
 }));
 
 passport.use(new localStrategy({
@@ -60,8 +58,8 @@ passport.use(new localStrategy({
             return done(null, false, {message: 'No se encontró usuario...'});
           } else {
             console.log("Autenticación exitosa...");
+
             db.detach();
-            user.distribuidor = rsl[0].NOMBRE;
             return done(null, rsl[0]);
           }
         });
